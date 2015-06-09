@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="AngularTable">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Angular Table</title>
+
+    <link rel="stylesheet" href="./bower_components/foundation/css/foundation.min.css"/>
+
+    <style>
+        table {
+            width: 100%;
+        }
+        table tr th {
+            cursor: pointer;
+            color: #777;
+        }
+        table tr th:hover {
+            color: #000;
+        }
+
+    </style>
+
+</head>
+<body ng-controller="AngularTableCtrl">
+
+<br/><br/>
+
+<div class="row">
+    <div class="medium-6 columns">
+        <input type="text" ng-model="movieSearch" placeholder="Search Movies"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+
+            <!-- Table Head Row -->
+            <tr>
+                <th ng-click="sort('title')">Title</th>
+                <th ng-click="sort('releaseDate')">Release Date</th>
+                <th ng-click="sort('rated')">Rated</th>
+                <th ng-click="sort('genre')">Genre</th>
+                <th ng-click="sort('director')">Director</th>
+            </tr>
+
+            <!-- Table Body Row (repeated) -->
+            <tr ng-repeat="movie in movies | orderBy:sortColumn:reverse | filter: {title:movieSearch}">
+                <td>{{movie.title}}</td>
+                <td>{{movie.releaseDate | date}}</td>
+                <td>{{movie.rated}}</td>
+                <td>{{movie.genre}}</td>
+                <td>{{movie.director}}</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<!-- Vendor Libraries -->
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/foundation/js/foundation.min.js"></script>
+<script src="./bower_components/modernizr/modernizr.js"></script>
+
+<!-- Angular -->
+<script src="./bower_components/angular/angular.min.js"></script>
+<script src="./bower_components/angular-route/angular-route.min.js"></script>
+<script src="./bower_components/angular-resource/angular-resource.min.js"></script>
+
+<!-- App -->
+<script src="./app/app.js"></script>
+<script src="./app/appCtrl.js"></script>
+<script src="./app/appService.js"></script>
+
+</body>
+</html>
