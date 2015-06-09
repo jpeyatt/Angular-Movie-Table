@@ -8,4 +8,4 @@ Libraries used:
 <li><a href="http://foundation.zurb.com/">Foundation</a></li>
 <li><a href="https://github.com/michaelbromley/angularUtils">angularUtils</a></li>
 
-
+Check out the <a href="http://jpeyatt.github.io/Angular-Movie-Table/">Demo here</a>.
